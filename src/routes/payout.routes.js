@@ -1,5 +1,10 @@
 import { Router } from "express";
-import { submitData,getData,exportData,getNum } from "../controllers/payout.controller.js";
+import {
+  submitData,
+  getData,
+  exportData,
+  getNum,
+} from "../controllers/payout.controller.js";
 
 const payoutRouter = Router();
 
