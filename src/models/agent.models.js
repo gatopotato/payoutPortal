@@ -1,36 +1,39 @@
 import mongoose, { Schema } from "mongoose";
 
-const vehicleSchema = new Schema(
+const agentSchema = new Schema(
   {
-    vehicleNo: {
+    name: {
       type: String,
       required: true,
     },
-    model: {
+    email: {
       type: String,
       required: true,
+      unique: true,
     },
-    year: {
+    phoneNo: {
       type: Number,
       required: true,
     },
-    fuel: {
-      type: String,
-      enum: {
-        values: ["P", "D"],
-      },
-      required: true,
-    },
-    vehicleType: {
+    address: {
       type: String,
       required: true,
     },
-    cases: {
-      type: String,
+    kycDoc: {
       required: true,
+      type: String,
+    },
+    relationManagerId: {
+      required: true,
+      type: Schema.Types.ObjectId,
+      ref: "RelationManager",
+    },
+    commission: {
+      required: true,
+      type: Number,
     },
   },
   { timestamps: true },
 );
 
-export const Vehicle = mongoose.model("Vehicle", vehicleSchema);
+export const Agent = mongoose.model("Agent", agentSchema);
